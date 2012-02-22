@@ -1,0 +1,25 @@
+diff -rupN converseen-0.4.7.old/res/converseen.desktop converseen-0.4.7/res/converseen.desktop
+--- converseen-0.4.7.old/res/converseen.desktop	2011-10-28 19:35:45.000000000 +0200
++++ converseen-0.4.7/res/converseen.desktop	2011-12-09 23:34:34.000000000 +0100
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=Converseen
+ GenericName=Converseen
+ Name[en_GB]=Converseen
+diff -rupN converseen-0.4.7.old/res/converseen_import.desktop converseen-0.4.7/res/converseen_import.desktop
+--- converseen-0.4.7.old/res/converseen_import.desktop	2011-10-28 19:35:45.000000000 +0200
++++ converseen-0.4.7/res/converseen_import.desktop	2011-12-09 23:45:00.000000000 +0100
+@@ -1,12 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ ServiceTypes=KonqPopupMenu/Plugin,image/*
+ TryExec=converseen
+ Type=Service
+ Actions=converseenImport;
+ X-KDE-Submenu=Open with Converseen
+ X-KDE-Submenu[it]=Apri con Converseen
+-TryExec=convert
+ 
+ [Desktop Action converseenImport]
+ Name=Import
