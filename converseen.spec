@@ -1,11 +1,11 @@
 Name:		converseen
-Version:	0.4.9
-Release:	%mkrel 1
+Version:	0.5
+Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://downloads.sourceforge.net/project/converseen/Converseen/Converseen%200.5/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		converseen-fix-desktop-entries.patch
 BuildRequires:	cmake >= 2.4
 BuildRequires:	gcc-c++
@@ -28,15 +28,9 @@ different formats!
 
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std -C build
 
-%clean
-%__rm -rf %{buildroot}
-
-
 %files
-%defattr(-,root,root)
 %doc README INSTALL COPYING
 %{_bindir}/%{name}
 %{_datadir}/pixmaps/%{name}.png
@@ -48,16 +42,11 @@ different formats!
 
 
 %changelog
-* Mon Feb 20 2012 Andrey Bondrov <abondrov@mandriva.org> 0.4.9-1mdv2012.0
+* Thu Jun 14 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.5-1
++ Revision: 805535
+- version update 0.5
+
+* Mon Feb 20 2012 Andrey Bondrov <abondrov@mandriva.org> 0.4.9-1
 + Revision: 777914
 - imported package converseen
 
-
-* Wed Feb 01 2012 Giovanni Mariani <mc2374@mclink.it> 0.4.9-69.1mib2010.2
-- New release 0.4.9
-
-* Wed Jan 18 2012 Giovanni Mariani <mc2374@mclink.it> 0.4.8-69.1mib2010.2
-- New release 0.4.8
-
-* Sat Dec 10 2011 Giovanni Mariani <mc2374@mclink.it> 0.4.7-69.1mib2010.2
-- Ported to Mdv 2010.2 from a Fedora 16 package by the MIB
