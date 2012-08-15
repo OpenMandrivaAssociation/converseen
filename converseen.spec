@@ -10,7 +10,8 @@ Patch0:		converseen-fix-desktop-entries.patch
 BuildRequires:	cmake
 BuildRequires:	gcc-c++
 BuildRequires:	qt4-devel
-BuildRequires:	ImageMagick-devel ImageMagick
+BuildRequires:	ImageMagick-devel 
+BuildRequires:  ImageMagick
 BuildRequires:	sane-backends
 
 %description
