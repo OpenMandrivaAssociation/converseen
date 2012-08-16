@@ -7,7 +7,7 @@ Group:		Graphics
 URL:		http://converseen.sf.net/
 Source0:	http://downloads.sourceforge.net/project/converseen/Converseen/Converseen%200.5/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		converseen-fix-desktop-entries.patch
-BuildRequires:  imagemagick
+BuildRequires:  ImageMagick
 BuildRequires:	cmake
 BuildRequires:	gcc-c++
 BuildRequires:	qt4-devel
