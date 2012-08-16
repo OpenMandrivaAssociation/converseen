@@ -11,7 +11,7 @@ BuildRequires:	cmake
 BuildRequires:	gcc-c++
 BuildRequires:	qt4-devel
 BuildRequires:	imagemagick-devel 
-BuildRequires:  imagemagick
+BuildRequires:  ImageMagick
 BuildRequires:	sane-backends
 
 %description
