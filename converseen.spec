@@ -1,5 +1,5 @@
 Name:		converseen
-Version:	0.5.2
+Version:	0.5.3
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
@@ -7,11 +7,11 @@ Group:		Graphics
 URL:		http://converseen.sf.net/
 Source0:	http://downloads.sourceforge.net/project/converseen/Converseen/Converseen%200.5/%{version}/%{name}-%{version}.tar.bz2
 Patch0:		converseen-fix-desktop-entries.patch
-BuildRequires:  imagemagick
+BuildRequires:	imagemagick
 BuildRequires:	cmake >= 2.4
 BuildRequires:	gcc-c++
 BuildRequires:	qt4-devel
-BuildRequires:	imagemagick-devel 
+BuildRequires:	imagemagick-devel
 BuildRequires:	sane-backends
 
 %description
@@ -27,15 +27,12 @@ formats!
 # Drop wrong executable permissions
 chmod -x README COPYING
 
-
 %build
 %cmake
 %make
 
-
 %install
 %makeinstall_std -C build
-
 
 %files
 %doc README COPYING
@@ -46,6 +43,10 @@ chmod -x README COPYING
 %{_datadir}/%{name}/*.qm
 
 %changelog
+* Tue Feb 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 0.5.3-1
+- New version 0.5.3
+
 * Wed Jan 09 2013 Giovanni Mariani <mc2374@mclink.it> 0.5.2-1
 - New release 0.5.2
 - Killed rpmlint warnings (spurious-executable-perm, install-file-in-docs)
+
