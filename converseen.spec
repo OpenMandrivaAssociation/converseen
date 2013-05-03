@@ -1,11 +1,12 @@
 Name:		converseen
-Version:	0.5.3
+Version:	0.6
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
 Source0:	http://downloads.sourceforge.net/project/converseen/Converseen/Converseen%200.5/%{version}/%{name}-%{version}.tar.bz2
+Source1:	%{name}.rpmlintrc
 Patch0:		converseen-fix-desktop-entries.patch
 BuildRequires:	imagemagick
 BuildRequires:	cmake >= 2.4
@@ -43,6 +44,10 @@ chmod -x README COPYING
 %{_datadir}/%{name}/*.qm
 
 %changelog
+* Wed Apr 17 2013 Giovanni Mariani <mc2374@mclink.it> 0.6-1
+- New release 0.6
+- Added S1 to remove useless rpmlint warnings
+
 * Tue Feb 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 0.5.3-1
 - New version 0.5.3
 

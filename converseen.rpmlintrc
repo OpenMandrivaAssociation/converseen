@@ -1,0 +1,5 @@
+# There is no manual page
+addFilter("W: no-manual-page-for-binary")
+
+# We use %%apply_patches macro
+addFilter("W: patch-not-applied")
