@@ -1,32 +1,32 @@
+%define _desktopdir %{_datadir}/applications
+
+
 Name:		converseen
-Version:	0.6
+Version:	0.6.4
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
-Source0:	http://downloads.sourceforge.net/project/converseen/Converseen/Converseen%200.5/%{version}/%{name}-%{version}.tar.bz2
-Source1:	%{name}.rpmlintrc
-Patch0:		converseen-fix-desktop-entries.patch
-BuildRequires:	imagemagick
-BuildRequires:	cmake >= 2.4
-BuildRequires:	gcc-c++
+Source0:	http://downloads.sourceforge.net/converseen/%{name}-%{version}.tar.bz2
+Source1:	%name.desktop
+BuildRequires:	cmake 
 BuildRequires:	qt4-devel
-BuildRequires:	imagemagick-devel
-BuildRequires:	sane-backends
+BuildRequires:	pkgconfig(ImageMagick) >= 6.7.7
+BuildRequires:	imagemagick
+BuildRequires:	sane-backends >= 1.0.24
+BuildRequires:	desktop-file-utils
 
 %description
 Converseen is a batch image conversion tool and resizer written in C++ with
-Qt4 and Magick++. It allows you to convert images in more than 100 different
-formats!
-
+Qt4 and Magick++. It allows you to convert images in more than 100
+different formats!
 
 %prep
 %setup -q
-%apply_patches
-
-# Drop wrong executable permissions
-chmod -x README COPYING
+chmod -x README.* COPYING
+#fix linting in debug
+find . -type f -exec chmod -x {} \;
 
 %build
 %cmake
@@ -34,24 +34,26 @@ chmod -x README COPYING
 
 %install
 %makeinstall_std -C build
+# icons and menu entry ,let's do this right
+rm -rf \
+    %{buildroot}%{_datadir}/pixmaps/%{name}.png %{buildroot}%{_desktopdir}/%name.desktop
+for size in 256x256 128x128 96x96 64x64 48x48 32x32 22x22 16x16 ; do
+    install -dm 0755 \
+        %{buildroot}%{_datadir}/icons/hicolor/${size}/apps
+    convert -strip -resize ${size} res/%{name}.png \
+        %{buildroot}%{_datadir}/icons/hicolor/${size}/apps/%{name}.png
+done
 
-%files
-%doc README COPYING
+desktop-file-install  %{SOURCE1} %{buildroot}%{_desktopdir}/%name.desktop
+
+# localize
+%find_lang %{name} --with-qt
+
+%files -f %{name}.lang 
+%doc README.* COPYING
 %{_bindir}/%{name}
-%{_datadir}/pixmaps/%{name}.png
-%{_datadir}/applications/%{name}.desktop
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
+%{_desktopdir}/%{name}.desktop
+#TODO: russian entry here would be nice
 %{_datadir}/kde4/services/ServiceMenus/%{name}_import.desktop
-%{_datadir}/%{name}/*.qm
-
-%changelog
-* Wed Apr 17 2013 Giovanni Mariani <mc2374@mclink.it> 0.6-1
-- New release 0.6
-- Added S1 to remove useless rpmlint warnings
-
-* Tue Feb 19 2013 Andrey Bondrov <andrey.bondrov@rosalab.ru> 0.5.3-1
-- New version 0.5.3
-
-* Wed Jan 09 2013 Giovanni Mariani <mc2374@mclink.it> 0.5.2-1
-- New release 0.5.2
-- Killed rpmlint warnings (spurious-executable-perm, install-file-in-docs)
 

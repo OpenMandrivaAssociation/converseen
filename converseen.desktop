@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Converseen
+GenericName=Converseen
+GenericName[it]=Converseen
+GenericName[ru]=Converseen
+Comment=Batch image converter
+Comment[it]=Convertitore batch di immagini
+Comment[ru]=Преобразование изображений
+Exec=converseen
+Icon=converseen
+Categories=Qt;Graphics;RasterGraphics;
+StartupNotify=true
+Terminal=false
+Type=Application
