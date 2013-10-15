@@ -3,13 +3,14 @@
 
 Name:		converseen
 Version:	0.6.4
-Release:	1
+Release:	2
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
 Source0:	http://downloads.sourceforge.net/converseen/%{name}-%{version}.tar.bz2
 Source1:	%name.desktop
+Source2:	converseen_import.desktop
 BuildRequires:	cmake 
 BuildRequires:	qt4-devel
 BuildRequires:	pkgconfig(ImageMagick) >= 6.7.7
@@ -36,7 +37,8 @@ find . -type f -exec chmod -x {} \;
 %makeinstall_std -C build
 # icons and menu entry ,let's do this right
 rm -rf \
-    %{buildroot}%{_datadir}/pixmaps/%{name}.png %{buildroot}%{_desktopdir}/%name.desktop
+    %{buildroot}%{_datadir}/pixmaps/%{name}.png %{buildroot}%{_desktopdir}/%name.desktop \
+    %{buildroot}%{_datadir}/kde4/services/ServiceMenus/%{name}_import.desktop
 for size in 256x256 128x128 96x96 64x64 48x48 32x32 22x22 16x16 ; do
     install -dm 0755 \
         %{buildroot}%{_datadir}/icons/hicolor/${size}/apps
@@ -45,6 +47,7 @@ for size in 256x256 128x128 96x96 64x64 48x48 32x32 22x22 16x16 ; do
 done
 
 desktop-file-install  %{SOURCE1} %{buildroot}%{_desktopdir}/%name.desktop
+install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/kde4/services/ServiceMenus/
 
 # localize
 %find_lang %{name} --with-qt
@@ -54,6 +57,5 @@ desktop-file-install  %{SOURCE1} %{buildroot}%{_desktopdir}/%name.desktop
 %{_bindir}/%{name}
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_desktopdir}/%{name}.desktop
-#TODO: russian entry here would be nice
 %{_datadir}/kde4/services/ServiceMenus/%{name}_import.desktop
 
