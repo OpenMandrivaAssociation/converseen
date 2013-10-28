@@ -2,7 +2,7 @@
 
 
 Name:		converseen
-Version:	0.6.4
+Version:	0.6.5
 Release:	2
 Summary:	A batch image conversion tool
 License:	GPLv3
@@ -39,14 +39,19 @@ find . -type f -exec chmod -x {} \;
 rm -rf \
     %{buildroot}%{_datadir}/pixmaps/%{name}.png %{buildroot}%{_desktopdir}/%name.desktop \
     %{buildroot}%{_datadir}/kde4/services/ServiceMenus/%{name}_import.desktop
+# icons
 for size in 256x256 128x128 96x96 64x64 48x48 32x32 22x22 16x16 ; do
     install -dm 0755 \
         %{buildroot}%{_datadir}/icons/hicolor/${size}/apps
     convert -strip -resize ${size} res/%{name}.png \
         %{buildroot}%{_datadir}/icons/hicolor/${size}/apps/%{name}.png
 done
-
+########################################################################
+# DONE: send those upstream , they said  "Yes we will..." before 0.6.5..
+########################################################################
+# menu entry
 desktop-file-install  %{SOURCE1} %{buildroot}%{_desktopdir}/%name.desktop
+# kde integration
 install -m 0644 %{SOURCE2} %{buildroot}%{_datadir}/kde4/services/ServiceMenus/
 
 # localize
