@@ -1,3 +1,5 @@
-sources:
+removed_sources:
   converseen-0.6.4.tar.bz2: 0c9e7d41a71bebfa59e12b69a0bb5273a00e8f94
   converseen-0.6.5.tar.bz2: ad33ca7667adfb7b2289966cc6376e92b9cc7c5c
+sources:
+  converseen-0.6.6.tar.bz2: fa512616eb21df99fa67404c0468f637cca2709b
