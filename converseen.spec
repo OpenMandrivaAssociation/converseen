@@ -1,5 +1,5 @@
 %define _desktopdir %{_datadir}/applications
-
+%define oname Converseen
 
 Name:		converseen
 Version:	0.7.1
@@ -24,7 +24,8 @@ Qt4 and Magick++. It allows you to convert images in more than 100
 different formats!
 
 %prep
-%setup -q
+%setup -qn %{oname}-%{version}
+
 chmod -x README.* COPYING
 #fix linting in debug
 find . -type f -exec chmod -x {} \;
