@@ -2,13 +2,13 @@
 
 
 Name:		converseen
-Version:	0.6.8
+Version:	0.7.1
 Release:	2
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
-Source0:	http://garr.dl.sourceforge.net/project/converseen/Converseen/Converseen%200.6/%{name}-%{version}.tar.bz2
+Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}.tar.gz
 Source1:	%name.desktop
 Source2:	converseen_import.desktop
 BuildRequires:	cmake 
