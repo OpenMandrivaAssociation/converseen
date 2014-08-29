@@ -3,7 +3,7 @@
 %define _appdatadir %{_datadir}/appdata
 
 Name:		converseen
-Version:	0.7.3
+Version:	0.8.3
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
