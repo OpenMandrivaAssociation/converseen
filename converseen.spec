@@ -4,7 +4,7 @@
 
 Name:		converseen
 Version:	0.7.3
-Release:	1
+Release:	2
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
