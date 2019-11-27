@@ -3,13 +3,13 @@
 %define _appdatadir %{_datadir}/appdata
 
 Name:		converseen
-Version:	0.9.6.2
+Version:	0.9.8.0
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
-Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}.tar.gz
+Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	converseen_import.desktop
 BuildRequires:	cmake 
@@ -20,6 +20,12 @@ BuildRequires:	sane-backends >= 1.0.24
 BuildRequires:	desktop-file-utils
 # do not remove. Sflo
 BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(Qt5Core)
+BuildRequires:	pkgconfig(Qt5Gui)
+BuildRequires:	pkgconfig(Qt5Help)
+BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt5Widgets)
+BuildRequires:	pkgconfig(Magick++)
 
 %description
 Converseen is a batch image conversion tool and resizer written in C++ with
