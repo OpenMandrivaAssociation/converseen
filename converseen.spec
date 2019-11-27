@@ -30,7 +30,7 @@ BuildRequires:	pkgconfig(Magick++)
 
 %description
 Converseen is a batch image conversion tool and resizer written in C++ with
-Qt4 and Magick++. It allows you to convert images in more than 100
+Qt5 and Magick++. It allows you to convert images in more than 100
 different formats!
 
 %prep
@@ -47,10 +47,10 @@ popd
 
 %build
 %cmake
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
+%make_install -C build
 
 # localize
 %find_lang %{name} --with-qt
