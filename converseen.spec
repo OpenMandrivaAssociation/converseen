@@ -9,7 +9,7 @@ Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		http://converseen.sf.net/
-Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	converseen_import.desktop
 BuildRequires:	cmake 
