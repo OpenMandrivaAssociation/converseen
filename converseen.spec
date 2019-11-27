@@ -13,6 +13,7 @@ Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{
 Source1:	%{name}.desktop
 Source2:	converseen_import.desktop
 BuildRequires:	cmake 
+BuildRequires:  cmake(Qt5LinguistTools)
 BuildRequires:	qt5-devel
 BuildRequires:	pkgconfig(ImageMagick) >= 7.0
 BuildRequires:	imagemagick
