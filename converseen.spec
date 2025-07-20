@@ -45,7 +45,7 @@ find . -type f -name "*.png" -exec convert {} -strip {} \;
 popd
 
 %build
-%cmake
+%cmake .. -DUSE_QT6=yes
 %make_build
 
 %install
