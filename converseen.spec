@@ -41,7 +41,7 @@ find . -type f -exec chmod -x {} \;
 
 # fix png rgb 
 pushd res
-find . -type f -name "*.png" -exec convert {} -strip {} \;
+find . -type f -name "*.png" -exec magick {} -strip {} \;
 popd
 
 %build
@@ -60,4 +60,4 @@ popd
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
 %{_desktopdir}/net.fasterland.%{name}.desktop
 %{_datadir}/kio/servicemenus/%{name}_import.desktop
-%{_appdatadir}/metainfo/%{name}.appdata.xml
+%{_datadir}/metainfo/%{name}.appdata.xml
