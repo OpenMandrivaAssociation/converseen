@@ -3,28 +3,27 @@
 %define _appdatadir %{_datadir}/appdata
 
 Name:		converseen
-Version:	0.9.8.0
-Release:	2
+Version:	0.15.0.2
+Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
-URL:		https://converseen.sf.net/
+URL:		https://converseen.fasterland.net/
 Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	converseen_import.desktop
 BuildRequires:	cmake 
-BuildRequires:  cmake(Qt5LinguistTools)
-BuildRequires:	qt5-devel
+BuildRequires:  cmake(Qt6LinguistTools)
 BuildRequires:	pkgconfig(ImageMagick) >= 7.0
 BuildRequires:	imagemagick
 BuildRequires:	sane-backends >= 1.0.24
 BuildRequires:	desktop-file-utils
 # do not remove. Sflo
 BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(Qt5Core)
-BuildRequires:	pkgconfig(Qt5Gui)
-BuildRequires:	pkgconfig(Qt5Help)
-BuildRequires:	pkgconfig(Qt5Network)
+BuildRequires:	pkgconfig(Qt6Core)
+BuildRequires:	pkgconfig(Qt6Gui)
+BuildRequires:	pkgconfig(Qt6Help)
+BuildRequires:	pkgconfig(Qt6Network)
 BuildRequires:	pkgconfig(Qt5Widgets)
 BuildRequires:	pkgconfig(Magick++)
 
@@ -36,7 +35,7 @@ different formats!
 %prep
 %setup -qn %{oname}-%{version}
 
-chmod -x README.* COPYING
+chmod -x README.* 
 #fix linting in debug
 find . -type f -exec chmod -x {} \;
 
@@ -56,9 +55,9 @@ popd
 %find_lang %{name} --with-qt
 
 %files -f %{name}.lang 
-%doc README.* COPYING
+%doc README.* 
 %{_bindir}/%{name}
-%{_datadir}/pixmaps/%{name}.png
-%{_desktopdir}/%{name}.desktop
-%{_datadir}/kservices5/ServiceMenus/%{name}_import.desktop
-%{_appdatadir}/%{name}.appdata.xml
+%{_datadir}/icons/hicolor/*/apps/%{name}.png
+%{_desktopdir}/net.fasterland.%{name}.desktop
+%{_datadir}/kio/servicemenus/%{name}_import.desktop
+%{_appdatadir}/metainfo/%{name}.appdata.xml
