@@ -1,9 +1,10 @@
 %define _desktopdir %{_datadir}/applications
 %define oname Converseen
 %define _appdatadir %{_datadir}/appdata
+%global debug_package %{nil}
 
 Name:		converseen
-Version:	0.15.0.3
+Version:	0.15.1.0
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
