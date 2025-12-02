@@ -4,7 +4,7 @@
 %global debug_package %{nil}
 
 Name:		converseen
-Version:	0.15.1.2
+Version:	0.15.1.3
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
