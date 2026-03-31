@@ -1,18 +1,18 @@
-%define _desktopdir %{_datadir}/applications
 %define oname Converseen
-%define _appdatadir %{_datadir}/appdata
 %global debug_package %{nil}
 
 Name:		converseen
-Version:	0.15.1.3
+Version:	0.15.2.2
 Release:	1
 Summary:	A batch image conversion tool
 License:	GPLv3
 Group:		Graphics
 URL:		https://converseen.fasterland.net/
 Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{version}.tar.gz
-Source1:	%{name}.desktop
-Source2:	converseen_import.desktop
+
+BuildSystem:    cmake
+BuildOption:    -DUSE_QT6=yes
+
 BuildRequires:	cmake 
 BuildRequires:  cmake(Qt6LinguistTools)
 BuildRequires:	pkgconfig(ImageMagick) >= 7.0
@@ -25,40 +25,22 @@ BuildRequires:	pkgconfig(Qt6Core)
 BuildRequires:	pkgconfig(Qt6Gui)
 BuildRequires:	pkgconfig(Qt6Help)
 BuildRequires:	pkgconfig(Qt6Network)
-BuildRequires:	pkgconfig(Qt5Widgets)
-BuildRequires:	pkgconfig(Magick++)
+BuildRequires:	pkgconfig(Qt6Widgets)
+BuildRequires:	gettext
 
 %description
 Converseen is a batch image conversion tool and resizer written in C++ with
-Qt5 and Magick++. It allows you to convert images in more than 100
+Qt6 and Magick++. It allows you to convert images in more than 100
 different formats!
 
 %prep
 %setup -qn %{oname}-%{version}
 
-chmod -x README.* 
-#fix linting in debug
-find . -type f -exec chmod -x {} \;
-
-# fix png rgb 
-pushd res
-find . -type f -name "*.png" -exec magick {} -strip {} \;
-popd
-
-%build
-%cmake .. -DUSE_QT6=yes
-%make_build
-
-%install
-%make_install -C build
-
-# localize
-%find_lang %{name} --with-qt
-
-%files -f %{name}.lang 
+%files -f %{name}.lang
+%license COPYING.txt
 %doc README.* 
 %{_bindir}/%{name}
 %{_datadir}/icons/hicolor/*/apps/%{name}.png
-%{_desktopdir}/net.fasterland.%{name}.desktop
+%{_datadir}/applications/net.fasterland.%{name}.desktop
 %{_datadir}/kio/servicemenus/%{name}_import.desktop
 %{_datadir}/metainfo/%{name}.appdata.xml
