@@ -6,7 +6,7 @@
 
 Summary:		A batch image conversion tool
 Name:		converseen
-Version:		0.15.2.2
+Version:		0.15.2.3
 Release:		1
 License:		GPLv3
 Group:		Graphics
@@ -16,6 +16,7 @@ Source1:	converseen.desktop
 Source2:	converseen_import.desktop
 BuildRequires:		cmake >= 3.16
 BuildRequires:		desktop-file-utils
+BuildRequires:		gettext
 BuildRequires:		imagemagick
 BuildRequires:		make
 BuildRequires:		sane-backends >= 1.0.24
