@@ -13,20 +13,25 @@ Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{
 BuildSystem:    cmake
 BuildOption:    -DUSE_QT6=yes
 
-BuildRequires:	cmake 
-BuildRequires:  cmake(Qt6LinguistTools)
-BuildRequires:	pkgconfig(ImageMagick) >= 7.0
-BuildRequires:	imagemagick
-BuildRequires:	sane-backends >= 1.0.24
-BuildRequires:	desktop-file-utils
+BuildRequires:		cmake >= 3.16
+BuildRequires:		desktop-file-utils
+BuildRequires:		imagemagick
+BuildRequires:		make
+BuildRequires:		sane-backends >= 1.0.24
+BuildRequires:		ghostscript-devel
+BuildRequires:		cmake(Qt6LinguistTools)
+BuildRequires:		pkgconfig(gl)
+BuildRequires:		pkgconfig(ImageMagick) >= 7.0
 # do not remove. Sflo
-BuildRequires:	pkgconfig(libpng)
-BuildRequires:	pkgconfig(Qt6Core)
-BuildRequires:	pkgconfig(Qt6Gui)
-BuildRequires:	pkgconfig(Qt6Help)
-BuildRequires:	pkgconfig(Qt6Network)
-BuildRequires:	pkgconfig(Qt6Widgets)
-BuildRequires:	gettext
+BuildRequires:		pkgconfig(libpng)
+BuildRequires:		pkgconfig(Magick++)
+BuildRequires:		pkgconfig(Qt6Core)
+BuildRequires:		pkgconfig(Qt6Gui)
+BuildRequires:		pkgconfig(Qt6Help)
+BuildRequires:		pkgconfig(Qt6Network)
+BuildRequires:		pkgconfig(Qt6Widgets)
+BuildRequires:		pkgconfig(vulkan)
+BuildRequires:    gettext
 
 %description
 Converseen is a batch image conversion tool and resizer written in C++ with
