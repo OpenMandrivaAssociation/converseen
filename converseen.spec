@@ -6,9 +6,9 @@
 
 Summary:		A batch image conversion tool
 Name:		converseen
-Version:		0.15.2.3
+Version:		0.15.2.4
 Release:		1
-License:		GPLv3
+License:		GPL-3.0-or-later
 Group:		Graphics
 Url:		https://converseen.fasterland.net/
 Source0:	https://github.com/Faster3ck/Converseen/archive/v%{version}/%{oname}-%{version}.tar.gz
