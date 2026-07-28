@@ -27,6 +27,7 @@ BuildRequires:		pkgconfig(ImageMagick) >= 7.0
 # do not remove. Sflo
 BuildRequires:		pkgconfig(libpng)
 BuildRequires:		pkgconfig(Magick++)
+BuildRequires:		pkgconfig(Qt6Concurrent)
 BuildRequires:		pkgconfig(Qt6Core)
 BuildRequires:		pkgconfig(Qt6Gui)
 BuildRequires:		pkgconfig(Qt6Help)
