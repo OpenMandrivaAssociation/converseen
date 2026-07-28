@@ -6,7 +6,7 @@
 
 Summary:		A batch image conversion tool
 Name:		converseen
-Version:		0.15.2.4
+Version:		0.15.2.7
 Release:		1
 License:		GPL-3.0-or-later
 Group:		Graphics
